@@ -15,7 +15,7 @@ def iniciarJ():
         t[i]="N"
 
 ventana=Tk()
-ventana.title("Juego del Gato")
+ventana.title("Tres en Raya")
 ventana.geometry("400x500")
 turno=0
 nombreJugador1=("")
