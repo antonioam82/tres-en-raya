@@ -8,19 +8,19 @@ def bloquear():
         listaBotones[i].config(state="disable")
 
 def cambiar(num):
-    global turno,nombreJugador1,nombreJugador2
+    global turno,nombreJugador1,nombreJugador2,elecJugador1#########################
     if t[num]=="N" and turno==0:
-        listaBotones[num].config(text="X")
+        listaBotones[num].config(text=elecJugador1)##############################
         listaBotones[num].config(bg="white")
-        t[num]="X"
+        t[num]=elecJugador1#########################################
         turno=1
-        turnoJugador.set("Turno: " + nombreJugador2)
+        turnoJugador.set("Turno: " + nombreJugador2)#################################################3
     elif t[num]=="N" and turno==1:
-        listaBotones[num].config(text="O")
+        listaBotones[num].config(text=elecJugador2)####################################333
         listaBotones[num].config(bg="lightblue")
-        t[num]="O"
+        t[num]=elecJugador2################################################
         turno=0
-        turnoJugador.set("Turno: " + nombreJugador1)
+        turnoJugador.set("Turno: " + nombreJugador1)########################################
     listaBotones[num].config(state="disable")
         
 
@@ -30,16 +30,24 @@ def iniciarJ():
         listaBotones[i].config(bg="lightgrey")
         listaBotones[i].config(text="")
         t[i]="N"
-    global nombreJugador1,nombreJugador2
+    global nombreJugador1,nombreJugador2,elecJugador1,elecJugador2
     nombreJugador1=simpledialog.askstring("Jugador","Escribe el nombre del jugador 1: ")
     nombreJugador2=simpledialog.askstring("Jugador","Escribe el nombre del jugador 2: ")
+    elecJugador1=(("").join(nombreJugador1)).split(",")[1]#########################################
+    elecJugador2=(("").join(nombreJugador2)).split(",")[1]#########################################
+    #SnombreJugador1=elecJugador1[0]
+    #SnombreJugador2=elecJugador2[0]
     turnoJugador.set("Turno: " + nombreJugador1)
 ventana=Tk()
 ventana.title("Juego del Gato")
 ventana.geometry("400x500")
 turno=0
+elecJugador1=("")######################################################
+elecJugador2=("")######################################################
 nombreJugador1=("")
 nombreJugador2=("")
+#SnombreJugador1=("")##
+#SnombreJugador2=("")##
 listaBotones=[]
 t=[]
 turnoJugador=StringVar()
@@ -76,4 +84,3 @@ turnoE=Label(ventana,textvariable=turnoJugador).place(x=120,y=20)
 iniciar=Button(ventana,bg="dark blue",fg="white",text="Iniciar Juego",width=15,height=3,command=iniciarJ).place(x=130,y=350)
 bloquear()
 ventana.mainloop()
-
