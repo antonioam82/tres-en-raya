@@ -14,13 +14,13 @@ def cambiar(num):
         listaBotones[num].config(bg="white")
         t[num]="X"
         turno=1
-        turnoJugador("Turno: " + nombreJugador2)
+        turnoJugador.set("Turno: " + nombreJugador2)
     elif t[num]=="N" and turno==1:
         listaBotones[num].config(text="O")
         listaBotones[num].config(bg="lightblue")
         t[num]="O"
         turno=0
-        turnoJugador("Turno: " + nombreJugador1)
+        turnoJugador.set("Turno: " + nombreJugador1)
     listaBotones[num].config(state="disable")
         
 
