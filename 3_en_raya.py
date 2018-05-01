@@ -31,8 +31,8 @@ def iniciarJ():
         listaBotones[i].config(text="")
         t[i]="N"
     global nombreJugador1,nombreJugador2,elecJugador1,elecJugador2,SnombreJugador1,SnombreJugador2
-    nombreJugador1=simpledialog.askstring("Jugador","Escribe el nombre del jugador 1: ")
-    nombreJugador2=simpledialog.askstring("Jugador","Escribe el nombre del jugador 2: ")
+    nombreJugador1=simpledialog.askstring("Jugador","Nombre jugador 1 y ficha (X o O) separadas por coma: ")
+    nombreJugador2=simpledialog.askstring("Jugador","Nombre jugador 2 y ficha (X o O) separadas por coma: ")
     elecJugador1=(("").join(nombreJugador1)).split(",")[1]#########################################
     elecJugador2=(("").join(nombreJugador2)).split(",")[1]#########################################
     SnombreJugador1=(("").join(nombreJugador1)).split(",")[0]######################################
@@ -84,4 +84,3 @@ turnoE=Label(ventana,textvariable=turnoJugador).place(x=120,y=20)
 iniciar=Button(ventana,bg="dark blue",fg="white",text="Iniciar Juego",width=15,height=3,command=iniciarJ).place(x=130,y=350)
 bloquear()
 ventana.mainloop()
-
