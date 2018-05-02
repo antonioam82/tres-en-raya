@@ -20,9 +20,29 @@ def cambiar(num):
         listaBotones[num].config(bg="lightblue")
         t[num]=elecJugador2################################################
         turno=0
-        turnoJugador.set("Turno: " + SnombreJugador1)########################################
+        turnoJugador.set("Turno: " + SnombreJugador1)
     listaBotones[num].config(state="disable")
-        
+    ganador()
+
+def ganador():
+    if (t[0]==elecJugador1 and t[1]==elecJugador1 and t[2]==elecJugador1)or(t[3]==elecJugador1 and t[4]==elecJugador1 and t[5]==elecJugador1)or(t[6]==elecJugador1 and t[7]==elecJugador1 and t[8]==elecJugador1):
+        bloquear()
+        messagebox.showinfo("GANADOR",SnombreJugador1+" Gano el juego")
+    if (t[0]==elecJugador1 and t[4]==elecJugador1 and t[8]==elecJugador1)or(t[2]==elecJugador1 and t[4]==elecJugador1 and t[6]==elecJugador1):
+        bloquear()
+        messagebox.showinfo("GANADOR",SnombreJugador1+" Gano el juego")
+    if (t[0]==elecJugador1 and t[3]==elecJugador1 and t[6]==elecJugador1)or(t[1]==elecJugador1 and t[4]==elecJugador1 and t[7]==elecJugador1)or(t[2]==elecJugador1 and t[5]==elecJugador1 and t[8]==elecJugador1):
+        bloquear()
+        messagebox.showinfo("GANADOR",SnombreJugador1+" Gano el juego")
+    if (t[0]==elecJugador2 and t[1]==elecJugador2 and t[2]==elecJugador2)or(t[3]==elecJugador2 and t[4]==elecJugador2 and t[5]==elecJugador2)or(t[6]==elecJugador2 and t[7]==elecJugador2 and t[8]==elecJugador2):
+        bloquear()
+        messagebox.showinfo("GANADOR",SnombreJugador2+" Gano el juego")
+    if (t[0]==elecJugador2 and t[4]==elecJugador2 and t[8]==elecJugador2)or(t[2]==elecJugador2 and t[4]==elecJugador2 and t[6]==elecJugador2):
+        bloquear()
+        messagebox.showinfo("GANADOR",SnombreJugador2+" Gano el juego")
+    if (t[0]==elecJugador2 and t[3]==elecJugador2 and t[6]==elecJugador2)or(t[1]==elecJugador2 and t[4]==elecJugador2 and t[7]==elecJugador2)or(t[2]==elecJugador2 and t[5]==elecJugador2 and t[8]==elecJugador2):
+        bloquear()
+        messagebox.showinfo("GANADOR",SnombreJugador2+" Gano el juego")
 
 def iniciarJ():
     for i in range(0,9):
@@ -33,11 +53,11 @@ def iniciarJ():
     global nombreJugador1,nombreJugador2,elecJugador1,elecJugador2,SnombreJugador1,SnombreJugador2
     nombreJugador1=simpledialog.askstring("Jugador","Nombre jugador 1 y ficha (X o O) separadas por coma: ")
     nombreJugador2=simpledialog.askstring("Jugador","Nombre jugador 2 y ficha (X o O) separadas por coma: ")
-    elecJugador1=(("").join(nombreJugador1)).split(",")[1]#########################################
-    elecJugador2=(("").join(nombreJugador2)).split(",")[1]#########################################
-    SnombreJugador1=(("").join(nombreJugador1)).split(",")[0]######################################
-    SnombreJugador2=(("").join(nombreJugador2)).split(",")[0]######################################
-    turnoJugador.set("Turno: " + SnombreJugador1)########################################
+    elecJugador1=(("").join(nombreJugador1)).split(",")[1]#
+    elecJugador2=(("").join(nombreJugador2)).split(",")[1]#
+    SnombreJugador1=(("").join(nombreJugador1)).split(",")[0]#
+    SnombreJugador2=(("").join(nombreJugador2)).split(",")[0]#
+    turnoJugador.set("Turno: " + SnombreJugador1)
 ventana=Tk()
 ventana.title("Tres en Raya")
 ventana.geometry("400x500")
