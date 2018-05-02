@@ -39,7 +39,7 @@ def iniciarJ():
     SnombreJugador2=(("").join(nombreJugador2)).split(",")[0]######################################
     turnoJugador.set("Turno: " + SnombreJugador1)########################################
 ventana=Tk()
-ventana.title("Juego del Gato")
+ventana.title("Tres en Raya")
 ventana.geometry("400x500")
 turno=0
 elecJugador1=("")######################################################
@@ -84,3 +84,4 @@ turnoE=Label(ventana,textvariable=turnoJugador).place(x=120,y=20)
 iniciar=Button(ventana,bg="dark blue",fg="white",text="Iniciar Juego",width=15,height=3,command=iniciarJ).place(x=130,y=350)
 bloquear()
 ventana.mainloop()
+
