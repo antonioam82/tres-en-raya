@@ -1,4 +1,4 @@
-#JUEGO DEL GATO
+#TRES EN RAYA
 from tkinter import *
 from tkinter import messagebox
 from tkinter import simpledialog
