@@ -51,7 +51,7 @@ def iniciarJ():
         listaBotones[i].config(text="")
         t[i]="N"
     global nombreJugador1,nombreJugador2,elecJugador1,elecJugador2,SnombreJugador1,SnombreJugador2
-    try:
+    try: #POR SI SE LE DA AL BOTÓN "CANCELAR".
         while nombreJugador1==("") or not (",") in nombreJugador1:
             nombreJugador1=simpledialog.askstring("Jugador","Nombre jugador 1 y ficha (X o O) separadas por coma: ")
         while nombreJugador2==("") or not (",") in nombreJugador2:
