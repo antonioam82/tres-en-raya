@@ -1,1 +1,1 @@
-# juego_gato
+# Tres en raya/juego_gato
