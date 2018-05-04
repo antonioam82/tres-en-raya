@@ -1,4 +1,4 @@
-#TRES EN RAYA
+#JUEGO DEL GATO
 from tkinter import *
 from tkinter import messagebox
 from tkinter import simpledialog
@@ -51,13 +51,18 @@ def iniciarJ():
         listaBotones[i].config(text="")
         t[i]="N"
     global nombreJugador1,nombreJugador2,elecJugador1,elecJugador2,SnombreJugador1,SnombreJugador2
-    nombreJugador1=simpledialog.askstring("Jugador","Nombre jugador 1 y ficha (X o O) separadas por coma: ")
-    nombreJugador2=simpledialog.askstring("Jugador","Nombre jugador 2 y ficha (X o O) separadas por coma: ")
-    elecJugador1=(("").join(nombreJugador1)).split(",")[1]#
-    elecJugador2=(("").join(nombreJugador2)).split(",")[1]#
-    SnombreJugador1=(("").join(nombreJugador1)).split(",")[0]#
-    SnombreJugador2=(("").join(nombreJugador2)).split(",")[0]#
-    turnoJugador.set("Turno: " + SnombreJugador1)
+    try:
+        while nombreJugador1==("") or not (",") in nombreJugador1:
+            nombreJugador1=simpledialog.askstring("Jugador","Nombre jugador 1 y ficha (X o O) separadas por coma: ")
+        while nombreJugador2==("") or not (",") in nombreJugador2:
+            nombreJugador2=simpledialog.askstring("Jugador","Nombre jugador 2 y ficha (X o O) separadas por coma: ")
+        elecJugador1=(("").join(nombreJugador1)).split(",")[1]#
+        elecJugador2=(("").join(nombreJugador2)).split(",")[1]#
+        SnombreJugador1=(("").join(nombreJugador1)).split(",")[0]#
+        SnombreJugador2=(("").join(nombreJugador2)).split(",")[0]#
+        turnoJugador.set("Turno: " + SnombreJugador1)
+    except:
+        bloquear()
 ventana=Tk()
 ventana.title("Tres en Raya")
 ventana.geometry("400x500")
