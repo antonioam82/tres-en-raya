@@ -62,14 +62,14 @@ def iniciarJ():
             nombreJugador1=simpledialog.askstring("Jugador","Nombre jugador 1 y ficha (X o O) separadas por coma: ")
             elecJugador1=(("").join(nombreJugador1)).split(",")[1]#
             SnombreJugador1=(("").join(nombreJugador1)).split(",")[0]#
-        if numJ==str(2):
+        if numJ=="2":
             while nombreJugador2==("") or not (",") in nombreJugador2:
                 nombreJugador2=simpledialog.askstring("Jugador","Nombre jugador 2 y ficha (X o O) separadas por coma: ")#VER POSIBILIDADES DE "simpledialog".
                 elecJugador2=(("").join(nombreJugador2)).split(",")[1]#
                 SnombreJugador2=(("").join(nombreJugador2)).split(",")[0]#
-        else:
-            #COMPUTADORA......
         turnoJugador.set("Turno: " + SnombreJugador1)
+        if numJ=="1":
+            print("COMPU")#PROVISIONAL (PARA QUE NO DE ERROR)
     except:
         bloquear()
 ventana=Tk()
@@ -119,4 +119,3 @@ turnoE=Label(ventana,textvariable=turnoJugador).place(x=120,y=20)
 iniciar=Button(ventana,bg="dark blue",fg="white",text="Iniciar Juego",width=15,height=3,command=iniciarJ).place(x=130,y=350)
 bloquear()
 ventana.mainloop()
-
