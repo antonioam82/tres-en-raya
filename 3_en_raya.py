@@ -7,6 +7,9 @@ def bloquear():
     for i in range(0,9):
         listaBotones[i].config(state="disable")
 
+def hola():
+    return True
+
 def cambiar(num):
     global turno,nombreJugador1,nombreJugador2,elecJugador1,SnombreJugador1,SnombreJugador2#########################
     if t[num]=="N" and turno==0:
@@ -50,16 +53,22 @@ def iniciarJ():
         listaBotones[i].config(bg="lightgrey")
         listaBotones[i].config(text="")
         t[i]="N"
-    global nombreJugador1,nombreJugador2,elecJugador1,elecJugador2,SnombreJugador1,SnombreJugador2
-    try: #POR SI SE LE DA AL BOTÓN "CANCELAR".
+    #aqui askstring
+    global nombreJugador1,nombreJugador2,elecJugador1,elecJugador2,SnombreJugador1,SnombreJugador2,numJ
+    try:
+        while numJ==("") or (numJ!=str(1) and numJ!=str(2)):
+            numJ=simpledialog.askstring("NUMERO JUGADORES","Indicar número de jugadores: ")
         while nombreJugador1==("") or not (",") in nombreJugador1:
             nombreJugador1=simpledialog.askstring("Jugador","Nombre jugador 1 y ficha (X o O) separadas por coma: ")
-        while nombreJugador2==("") or not (",") in nombreJugador2:
-            nombreJugador2=simpledialog.askstring("Jugador","Nombre jugador 2 y ficha (X o O) separadas por coma: ")
-        elecJugador1=(("").join(nombreJugador1)).split(",")[1]#
-        elecJugador2=(("").join(nombreJugador2)).split(",")[1]#
-        SnombreJugador1=(("").join(nombreJugador1)).split(",")[0]#
-        SnombreJugador2=(("").join(nombreJugador2)).split(",")[0]#
+            elecJugador1=(("").join(nombreJugador1)).split(",")[1]#
+            SnombreJugador1=(("").join(nombreJugador1)).split(",")[0]#
+        if numJ==str(2):
+            while nombreJugador2==("") or not (",") in nombreJugador2:
+                nombreJugador2=simpledialog.askstring("Jugador","Nombre jugador 2 y ficha (X o O) separadas por coma: ")#VER POSIBILIDADES DE "simpledialog".
+                elecJugador2=(("").join(nombreJugador2)).split(",")[1]#
+                SnombreJugador2=(("").join(nombreJugador2)).split(",")[0]#
+        else:
+            #COMPUTADORA......
         turnoJugador.set("Turno: " + SnombreJugador1)
     except:
         bloquear()
@@ -67,6 +76,7 @@ ventana=Tk()
 ventana.title("Tres en Raya")
 ventana.geometry("400x500")
 turno=0
+numJ=("")
 elecJugador1=("")######################################################
 elecJugador2=("")######################################################
 nombreJugador1=("")
