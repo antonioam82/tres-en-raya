@@ -1,7 +1,9 @@
 #TRES EN RAYA
+#DE MOMENTO SOLO ESTÁ DISPONIBLE LA OPCIÓN PARA 2 JUGADORES
 from tkinter import *
 from tkinter import messagebox
 from tkinter import simpledialog
+#import random
 
 def bloquear():
     for i in range(0,9):
@@ -11,7 +13,7 @@ def hola():
     return True
 
 def cambiar(num):
-    global turno,nombreJugador1,nombreJugador2,elecJugador1,SnombreJugador1,SnombreJugador2
+    global turno,nombreJugador1,nombreJugador2,elecJugador1,SnombreJugador1,SnombreJugador2#,numJ###
     if t[num]=="N" and turno==0:
         listaBotones[num].config(text=elecJugador1)
         listaBotones[num].config(bg="white")
@@ -19,10 +21,14 @@ def cambiar(num):
         turno=1
         turnoJugador.set("Turno: " + SnombreJugador2)
     elif t[num]=="N" and turno==1:
+        #if numJ=="1":####
+            #num=random.randint(0,9)####
+            #turno=1
+            #cambiar(num)
         listaBotones[num].config(text=elecJugador2)
         listaBotones[num].config(bg="lightblue")
         t[num]=elecJugador2
-        turno=0
+        turno=0#####################################
         turnoJugador.set("Turno: " + SnombreJugador1)
     listaBotones[num].config(state="disable")
     ganador()
@@ -77,8 +83,8 @@ ventana.title("Tres en Raya")
 ventana.geometry("400x500")
 turno=0
 numJ=("")
-elecJugador1=("")######################################################
-elecJugador2=("")######################################################
+elecJugador1=("")
+elecJugador2=("")
 nombreJugador1=("")
 nombreJugador2=("")
 SnombreJugador1=("")##
