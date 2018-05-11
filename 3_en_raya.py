@@ -11,17 +11,17 @@ def hola():
     return True
 
 def cambiar(num):
-    global turno,nombreJugador1,nombreJugador2,elecJugador1,SnombreJugador1,SnombreJugador2#########################
+    global turno,nombreJugador1,nombreJugador2,elecJugador1,SnombreJugador1,SnombreJugador2
     if t[num]=="N" and turno==0:
-        listaBotones[num].config(text=elecJugador1)##############################
+        listaBotones[num].config(text=elecJugador1)
         listaBotones[num].config(bg="white")
-        t[num]=elecJugador1#########################################
+        t[num]=elecJugador1
         turno=1
-        turnoJugador.set("Turno: " + SnombreJugador2)#################################################
+        turnoJugador.set("Turno: " + SnombreJugador2)
     elif t[num]=="N" and turno==1:
-        listaBotones[num].config(text=elecJugador2)####################################
+        listaBotones[num].config(text=elecJugador2)
         listaBotones[num].config(bg="lightblue")
-        t[num]=elecJugador2################################################
+        t[num]=elecJugador2
         turno=0
         turnoJugador.set("Turno: " + SnombreJugador1)
     listaBotones[num].config(state="disable")
