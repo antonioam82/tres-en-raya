@@ -3,7 +3,7 @@
 from tkinter import *
 from tkinter import messagebox
 from tkinter import simpledialog
-#import random
+#import random####
 
 def bloquear():
     for i in range(0,9):
@@ -23,12 +23,12 @@ def cambiar(num):
     elif t[num]=="N" and turno==1:
         #if numJ=="1":####
             #num=random.randint(0,9)####
-            #turno=1
-            #cambiar(num)
+            #turno=1####
+            #cambiar(num)####
         listaBotones[num].config(text=elecJugador2)
         listaBotones[num].config(bg="lightblue")
         t[num]=elecJugador2
-        turno=0#####################################
+        turno=0
         turnoJugador.set("Turno: " + SnombreJugador1)
     listaBotones[num].config(state="disable")
     ganador()
@@ -75,7 +75,11 @@ def iniciarJ():
                 SnombreJugador2=(("").join(nombreJugador2)).split(",")[0]#
         turnoJugador.set("Turno: " + SnombreJugador1)
         if numJ=="1":
-            print("COMPU")#PROVISIONAL (PARA QUE NO DE ERROR)
+            SnombreJugador2=("La Compu")
+            if elecJugador1==("X"):
+                elecJugador2=("O")
+            else:
+                elecJugador2=("X")
     except:
         bloquear()
 ventana=Tk()
