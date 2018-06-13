@@ -3,7 +3,7 @@
 from tkinter import *
 from tkinter import messagebox
 from tkinter import simpledialog
-#import random####
+import random####
 
 def bloquear():
     for i in range(0,9):
@@ -13,23 +13,32 @@ def hola():
     return True
 
 def cambiar(num):
-    global turno,nombreJugador1,nombreJugador2,elecJugador1,SnombreJugador1,SnombreJugador2#,numJ###
+    global turno,nombreJugador1,nombreJugador2,elecJugador1,SnombreJugador1,SnombreJugador2,lista#,numJ###
     if t[num]=="N" and turno==0:
         listaBotones[num].config(text=elecJugador1)
         listaBotones[num].config(bg="white")
+        if numJ=="1":
+            del(lista[lista.index(str(num))])
+            #print(lista)
         t[num]=elecJugador1
         turno=1
         turnoJugador.set("Turno: " + SnombreJugador2)
     elif t[num]=="N" and turno==1:
-        #if numJ=="1":####
-            #num=random.randint(0,9)####
-            #turno=1####
-            #cambiar(num)####
+        if numJ=="1":####
+            num=random.choice(lista)####
+            #print(num)
+            num=int(num)
         listaBotones[num].config(text=elecJugador2)
         listaBotones[num].config(bg="lightblue")
+        
         t[num]=elecJugador2
+        listaBotones[num].config(state="disable")
+        del(lista[lista.index(str(num))])
         turno=0
         turnoJugador.set("Turno: " + SnombreJugador1)
+            
+        #print(lista)
+        
     listaBotones[num].config(state="disable")
     ganador()
 
@@ -54,6 +63,8 @@ def ganador():
         messagebox.showinfo("GANADOR",SnombreJugador2+" Gano el juego")
 
 def iniciarJ():
+    global lista
+    lista=["0","1","2","3","4","5","6","7","8"]
     for i in range(0,9):
         listaBotones[i].config(state="normal")
         listaBotones[i].config(bg="lightgrey")
@@ -94,6 +105,7 @@ nombreJugador2=("")
 SnombreJugador1=("")##
 SnombreJugador2=("")##
 listaBotones=[]
+lista=["0","1","2","3","4","5","6","7","8"]
 t=[]
 turnoJugador=StringVar()
 for i in range(0,9):
