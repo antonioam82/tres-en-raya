@@ -3,42 +3,25 @@
 from tkinter import *
 from tkinter import messagebox
 from tkinter import simpledialog
-import random####
 
 def bloquear():
     for i in range(0,9):
         listaBotones[i].config(state="disable")
 
-def hola():
-    return True
-
 def cambiar(num):
-    global turno,nombreJugador1,nombreJugador2,elecJugador1,SnombreJugador1,SnombreJugador2,lista#,numJ###
+    global turno,nombreJugador1,nombreJugador2,elecJugador1,SnombreJugador1,SnombreJugador2#########################
     if t[num]=="N" and turno==0:
-        listaBotones[num].config(text=elecJugador1)
+        listaBotones[num].config(text=elecJugador1)##############################
         listaBotones[num].config(bg="white")
-        if numJ=="1":
-            del(lista[lista.index(str(num))])
-            #print(lista)
-        t[num]=elecJugador1
+        t[num]=elecJugador1#########################################
         turno=1
-        turnoJugador.set("Turno: " + SnombreJugador2)
+        turnoJugador.set("Turno: " + SnombreJugador2)#################################################
     elif t[num]=="N" and turno==1:
-        if numJ=="1":####
-            num=random.choice(lista)####
-            #print(num)
-            num=int(num)
-        listaBotones[num].config(text=elecJugador2)
+        listaBotones[num].config(text=elecJugador2)####################################
         listaBotones[num].config(bg="lightblue")
-        
-        t[num]=elecJugador2
-        listaBotones[num].config(state="disable")
-        del(lista[lista.index(str(num))])
+        t[num]=elecJugador2################################################
         turno=0
         turnoJugador.set("Turno: " + SnombreJugador1)
-            
-        #print(lista)
-        
     listaBotones[num].config(state="disable")
     ganador()
 
@@ -63,49 +46,35 @@ def ganador():
         messagebox.showinfo("GANADOR",SnombreJugador2+" Gano el juego")
 
 def iniciarJ():
-    global lista
-    lista=["0","1","2","3","4","5","6","7","8"]
     for i in range(0,9):
         listaBotones[i].config(state="normal")
         listaBotones[i].config(bg="lightgrey")
         listaBotones[i].config(text="")
         t[i]="N"
-    #aqui askstring
-    global nombreJugador1,nombreJugador2,elecJugador1,elecJugador2,SnombreJugador1,SnombreJugador2,numJ
-    try:
-        while numJ==("") or (numJ!=str(1) and numJ!=str(2)):
-            numJ=simpledialog.askstring("NUMERO JUGADORES","Indicar número de jugadores: ")
+    global nombreJugador1,nombreJugador2,elecJugador1,elecJugador2,SnombreJugador1,SnombreJugador2
+    try: #POR SI SE LE DA AL BOTÓN "CANCELAR".
         while nombreJugador1==("") or not (",") in nombreJugador1:
             nombreJugador1=simpledialog.askstring("Jugador","Nombre jugador 1 y ficha (X o O) separadas por coma: ")
-            elecJugador1=(("").join(nombreJugador1)).split(",")[1]#
-            SnombreJugador1=(("").join(nombreJugador1)).split(",")[0]#
-        if numJ=="2":
-            while nombreJugador2==("") or not (",") in nombreJugador2:
-                nombreJugador2=simpledialog.askstring("Jugador","Nombre jugador 2 y ficha (X o O) separadas por coma: ")#VER POSIBILIDADES DE "simpledialog".
-                elecJugador2=(("").join(nombreJugador2)).split(",")[1]#
-                SnombreJugador2=(("").join(nombreJugador2)).split(",")[0]#
+        while nombreJugador2==("") or not (",") in nombreJugador2:
+            nombreJugador2=simpledialog.askstring("Jugador","Nombre jugador 2 y ficha (X o O) separadas por coma: ")
+        elecJugador1=(("").join(nombreJugador1)).split(",")[1]#
+        elecJugador2=(("").join(nombreJugador2)).split(",")[1]#
+        SnombreJugador1=(("").join(nombreJugador1)).split(",")[0]#
+        SnombreJugador2=(("").join(nombreJugador2)).split(",")[0]#
         turnoJugador.set("Turno: " + SnombreJugador1)
-        if numJ=="1":
-            SnombreJugador2=("La Compu")
-            if elecJugador1==("X"):
-                elecJugador2=("O")
-            else:
-                elecJugador2=("X")
     except:
         bloquear()
 ventana=Tk()
 ventana.title("Tres en Raya")
 ventana.geometry("400x500")
 turno=0
-numJ=("")
-elecJugador1=("")
-elecJugador2=("")
+elecJugador1=("")######################################################
+elecJugador2=("")######################################################
 nombreJugador1=("")
 nombreJugador2=("")
 SnombreJugador1=("")##
 SnombreJugador2=("")##
 listaBotones=[]
-lista=["0","1","2","3","4","5","6","7","8"]
 t=[]
 turnoJugador=StringVar()
 for i in range(0,9):
