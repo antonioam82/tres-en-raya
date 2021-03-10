@@ -7,7 +7,7 @@ from tkinter import simpledialog
 
 ventana=Tk()
 ventana.title("Tres en Raya")
-ventana.geometry("390x450")
+ventana.geometry("388x450")
 turno=0
 
 boton0=Button(ventana,width=9,height=3)
